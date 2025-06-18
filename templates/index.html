@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Poll</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>{{ question }}</h1>
+    <form action="{{ url_for('vote') }}" method="POST">
+        {% for option in options %}
+            <input type="radio" id="{{ option }}" name="option" value="{{ option }}" required>
+            <label for="{{ option }}">{{ option }}</label><br />
+        {% endfor %}
+        <br />
+        <input type="submit" value="Vote">
+    </form>
+</body>
+</html>
